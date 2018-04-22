@@ -20,7 +20,7 @@ const logo = `
         </g>
     </g>
 </svg>
-`
+`;
 
 const logowithBG = `
   <svg width="48px" height="46px" viewBox="0 0 48 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -42,7 +42,7 @@ const logowithBG = `
           </g>
       </g>
   </svg>
-`
+`;
 
 const appleApp = `
   <svg width="129px" height="40px" viewBox="0 0 129 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -81,7 +81,7 @@ const appleApp = `
       </g>
     </g>
   </svg>
-`
+`;
 const androidApp = `
   <svg width="129px" height="41px" viewBox="0 0 129 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
@@ -142,7 +142,7 @@ const androidApp = `
       </g>
     </g>
   </svg>
-`
+`;
 const close = `
   <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
@@ -160,14 +160,14 @@ const close = `
         </g>
     </g>
   </svg>
-`
+`;
 
 const SVG = {
   logo,
   logowithBG,
   appleApp,
   androidApp,
-  close
-}
+  close,
+};
 
-export default SVG
+export default SVG;
