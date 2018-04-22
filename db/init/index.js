@@ -1,5 +1,4 @@
-let db = (mongoose) => {
-
+let db = mongoose => {
   //Set up default mongoose connection
   let DATABASE = process.env.MONGO_URL + process.env.MONGO_DB;
 

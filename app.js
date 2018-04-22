@@ -14,6 +14,7 @@ let routesDebug = require('./routes/init');
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let uportRouter = require('./routes/uport');
+let dashboardRouter = require('./routes/dashboard');
 
 let app = express();
 
@@ -36,6 +37,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/uport', uportRouter);
+app.use('/dashboard', dashboardRouter);
+
 routesDebug('Routes initialised');
 
 // catch 404 and forward to error handler
