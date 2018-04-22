@@ -1,14 +1,13 @@
-import ConnectCore from './ConnectCore'
-import Web3 from 'web3'
-import { openQr, closeQr } from './util/qrdisplay'
+import ConnectCore from './ConnectCore';
+import Web3 from 'web3';
+import {openQr, closeQr} from './util/qrdisplay';
 
 /**
-*  Primary object for frontend interactions with uPort. Bundles all neccesary functionality.
-*  @extends ConnectCore
-*
-*/
+ *  Primary object for frontend interactions with uPort. Bundles all neccesary functionality.
+ *  @extends ConnectCore
+ *
+ */
 class Connect extends ConnectCore {
-
   /**
    * Instantiates a new uPort connect object.
    *
@@ -30,26 +29,28 @@ class Connect extends ConnectCore {
    * @return      {Connect}                                  self
    */
 
-  constructor (appName, opts = {}) {
-    super(appName, opts)
-    this.uriHandler = opts.uriHandler || openQr
-    this.mobileUriHandler = opts.mobileUriHandler || mobileUriHandler
-    this.closeUriHandler = opts.closeUriHandler || (this.uriHandler === openQr ? closeQr : undefined)
+  constructor(appName, opts = {}) {
+    super(appName, opts);
+    this.uriHandler = opts.uriHandler || openQr;
+    this.mobileUriHandler = opts.mobileUriHandler || mobileUriHandler;
+    this.closeUriHandler =
+      opts.closeUriHandler ||
+      (this.uriHandler === openQr ? closeQr : undefined);
   }
 
- /**
-  *  Instantiates and returns a web3 object wrapped with uPort functionality. For
-  *  more details see uportSubprovider and getProvider in connectCore.
-  *
-  *  @return          {web3}    A uPort web3 object
-  */
-  getWeb3 () {
-    const provider = this.getProvider()
-    const web3 = new Web3()
-    web3.setProvider(provider)
+  /**
+   *  Instantiates and returns a web3 object wrapped with uPort functionality. For
+   *  more details see uportSubprovider and getProvider in connectCore.
+   *
+   *  @return          {web3}    A uPort web3 object
+   */
+  getWeb3() {
+    const provider = this.getProvider();
+    const web3 = new Web3();
+    web3.setProvider(provider);
     // Work around to issue with web3 requiring a from parameter. This isn't actually used.
-    web3.eth.defaultAccount = '0xB42E70a3c6dd57003f4bFe7B06E370d21CDA8087'
-    return web3
+    web3.eth.defaultAccount = '0xB42E70a3c6dd57003f4bFe7B06E370d21CDA8087';
+    return web3;
   }
 }
 
@@ -61,8 +62,8 @@ class Connect extends ConnectCore {
  *  @param    {String}     uri    A uPort URI
  *  @private
  */
-function mobileUriHandler (uri) {
-  window.location.assign(uri)
+function mobileUriHandler(uri) {
+  window.location.assign(uri);
 }
 
-export default Connect
+export default Connect;

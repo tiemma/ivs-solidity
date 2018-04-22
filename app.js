@@ -5,7 +5,7 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let sassMiddleware = require('node-sass-middleware');
 
-let routesDebug = require('./routes/init')
+let routesDebug = require('./routes/init');
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let uportRouter = require('./routes/uport');
@@ -18,16 +18,16 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(sassMiddleware({
   src: path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
   indentedSyntax: true, // true = .sass and false = .scss
-  sourceMap: true
+  sourceMap: true,
 }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use("/modules", express.static(path.join(__dirname, 'node_modules')));
+app.use('/modules', express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
