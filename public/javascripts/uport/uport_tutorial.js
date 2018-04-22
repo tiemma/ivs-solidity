@@ -13,14 +13,13 @@ const connect = new Connect("Blank Dude 's new app", {
 });
 const web3 = connect.getWeb3();
 
-
 //Request user credentials
 
-connect.requestCredentials()
-    .then((userProfile) => {
-        // Do something after they have disclosed credentials
-        console.log(userProfile);
-    })
+connect.requestCredentials().then(userProfile => {
+  // Do something after they have disclosed credentials
+  console.log(userProfile);
+  postData('/verify', userProfile);
+});
 
 // Setup the simple Status contract - allows you to set and read a status string
 
@@ -70,25 +69,6 @@ const uportConnect = function() {
       });
     });
   });
-};
-
-// Send ether
-const sendEther = () => {
-  const value = parseFloat(globalState.sendToVal) * 1.0e18;
-
-  web3.eth.sendTransaction(
-    {
-      to: globalState.sendToAddr,
-      value: value,
-    },
-    (error, txHash) => {
-      if (error) {
-        throw error;
-      }
-      globalState.txHashSentEth = txHash;
-      render();
-    }
-  );
 };
 
 // Set Status

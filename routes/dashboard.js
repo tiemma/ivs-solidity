@@ -1,13 +1,15 @@
 let express = require('express');
 
+let path = require('path');
+
 let router = express.Router();
 
 let routesDebug = require('./init');
 
-/* GET users listing. */
 router.get('/', function(req, res, next) {
-  routesDebug('Visited Users route');
-  res.send('respond with a resource');
+  routesDebug('Logged in user: ' + req.user.name);
+
+  res.render('dashboard', {user: req.user});
 });
 
 module.exports = router;

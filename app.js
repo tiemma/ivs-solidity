@@ -5,6 +5,11 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let sassMiddleware = require('node-sass-middleware');
 
+require('dotenv').config();
+
+let mongoose = require('mongoose');
+let db = require(__dirname+'/db/init/index')(mongoose);
+
 let routesDebug = require('./routes/init');
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
@@ -27,7 +32,6 @@ app.use(sassMiddleware({
   sourceMap: true,
 }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/modules', express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
