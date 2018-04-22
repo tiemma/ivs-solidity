@@ -138,7 +138,7 @@ class ConnectCore {
     if (this.accountType) request.accountType = this.accountType
     return new Promise((resolve, reject) => {
       if (this.canSign) {
-        this.credentials.createRequest({...request, network_id: this.network.id, callbackUrl: topic.url}).then(requestToken =>
+        this.credentials.createRequest(request.concat({network_id: this.network.id, callbackUrl: topic.url})).then(requestToken =>
           resolve(`https://id.uport.me/me?requestToken=${encodeURIComponent(requestToken)}`)
         )
       } else {

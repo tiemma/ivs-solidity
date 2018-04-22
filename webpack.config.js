@@ -1,7 +1,8 @@
 'use strict';
 
 // Webpack
-const webpack = require('webpack')
+const webpack = require('webpack');
+const path = require('path');
 
 // Plugin Setup
 const globalsPlugin = new webpack.DefinePlugin({
@@ -9,14 +10,15 @@ const globalsPlugin = new webpack.DefinePlugin({
   'process.env': { 'NODE_ENV': JSON.stringify('development') }
 })
 
-let libraryName = 'uportconnect'
+let libraryName = 'uportconnect';
 
 // Final Config
 module.exports = {
+  mode: 'development',
   entry: {'uport-connect': './src/index.js',
           'uport-connect-core': './src/indexCore.js'},
   output: {
-    filename: 'dist/[name].js',
+    filename: '../public/javascripts/uport/[name].js',
     library: libraryName,
     libraryTarget: 'umd',
     umdNamedDefine: true
@@ -24,15 +26,11 @@ module.exports = {
   devtool: 'source-map',
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
-      }
+        {
+            test: /\.js$/,
+            exclude: /(node_modules)/,
+            loader: 'babel-loader'
+        }
     ]
   },
   node: {
