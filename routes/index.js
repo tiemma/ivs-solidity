@@ -1,7 +1,6 @@
-var uport_ = require('uport-connect');
-var express = require('express');
+let express = require('express');
 
-var router = express.Router();
+let router = express.Router();
 
 
 
