@@ -11,10 +11,14 @@ let mongoose = require('mongoose');
 let db = require(__dirname+'/db/init/index')(mongoose);
 
 let routesDebug = require('./routes/init');
+let debug = require('debug')('hackathon:server');
+
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let uportRouter = require('./routes/uport');
 let dashboardRouter = require('./routes/dashboard');
+
+
 
 let app = express();
 
@@ -32,13 +36,17 @@ app.use(sassMiddleware({
   indentedSyntax: true, // true = .sass and false = .scss
   sourceMap: true,
 }));
-app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', express.static(path.join(__dirname, 'public')));
+
+let contractPath = path.resolve(__dirname, 'truffle/build/contracts');
+debug('Contract path: ' + contractPath);
+app.use('/contracts', express.static(contractPath));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/uport', uportRouter);
 app.use('/dashboard', dashboardRouter);
-
 routesDebug('Routes initialised');
 
 // catch 404 and forward to error handler

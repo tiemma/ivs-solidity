@@ -12,4 +12,10 @@ router.get('/', function(req, res, next) {
   res.render('dashboard', {user: req.query});
 });
 
+router.get('/details', function(req, res, next) {
+  routesDebug('Display details using contract');
+
+  res.send('Dashboard');
+});
+
 module.exports = router;

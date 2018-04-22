@@ -16,9 +16,12 @@ let libraryName = 'uportconnect';
 module.exports = {
     mode: 'development',
     target: 'web',
-    entry: {'uport-connect': './src/index.js',
+    entry: {
+        'uport-connect': './src/index.js',
         'uport-connect-core': './src/indexCore.js',
-        'web3': './node_modules/web3'},
+        'web3': './node_modules/web3',
+        'truffle-contract': './node_modules/truffle-contract'
+    },
     output: {
         filename: '../public/javascripts/uport/[name].js',
         library: libraryName,

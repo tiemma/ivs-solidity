@@ -13221,7 +13221,7 @@
 
             if (isBigNumber(val)) return fromDecimal(val);
 
-            if (typeof val === 'object') return fromUtf8(JSON.stringify(val));
+            if (isObject(val)) return fromUtf8(JSON.stringify(val));
 
             // if its a negative number, pass it through fromDecimal
             if (isString(val)) {
@@ -13507,11 +13507,7 @@
            * @return {Boolean}
            */
           var isObject = function(object) {
-            return (
-              object !== null &&
-              !(object instanceof Array) &&
-              typeof object === 'object'
-            );
+            return typeof object === 'object';
           };
 
           /**
@@ -13631,7 +13627,7 @@
   \********************************************/
         /*! exports provided: version, default */
         /***/ function(module) {
-          module.exports = {version: '0.19.0'};
+          module.exports = {version: '0.18.4'};
 
           /***/
         },
@@ -13778,8 +13774,6 @@
           Web3.prototype.isChecksumAddress = utils.isChecksumAddress;
           Web3.prototype.toChecksumAddress = utils.toChecksumAddress;
           Web3.prototype.isIBAN = utils.isIBAN;
-          Web3.prototype.padLeft = utils.padLeft;
-          Web3.prototype.padRight = utils.padRight;
 
           Web3.prototype.sha3 = function(string, options) {
             return '0x' + sha3(string, options);
@@ -14432,15 +14426,8 @@
            */
 
           module.exports = {
-            InvalidNumberOfSolidityArgs: function() {
-              return new Error(
-                'Invalid number of arguments to Solidity function'
-              );
-            },
-            InvalidNumberOfRPCParams: function() {
-              return new Error(
-                'Invalid number of input parameters to RPC method'
-              );
+            InvalidNumberOfParams: function() {
+              return new Error('Invalid number of input parameters');
             },
             InvalidConnection: function(host) {
               return new Error(
@@ -14957,9 +14944,7 @@ Adds the callback and sets up the methods, to iterate over the results.
                 self.callbacks.forEach(function(cb) {
                   cb(error);
                 });
-                if (typeof filterCreationErrorCallback === 'function') {
-                  filterCreationErrorCallback(error);
-                }
+                filterCreationErrorCallback(error);
               } else {
                 self.filterId = id;
 
@@ -15408,9 +15393,6 @@ Adds the callback and sets up the methods, to iterate over the results.
           var utils = __webpack_require__(
             /*! ../utils/utils */ './node_modules/web3/lib/utils/utils.js'
           );
-          var errors = __webpack_require__(
-            /*! ./errors */ './node_modules/web3/lib/web3/errors.js'
-          );
           var formatters = __webpack_require__(
             /*! ./formatters */ './node_modules/web3/lib/web3/formatters.js'
           );
@@ -15451,25 +15433,6 @@ Adds the callback and sets up the methods, to iterate over the results.
           };
 
           /**
-           * Should be called to check if the number of arguments is correct
-           *
-           * @method validateArgs
-           * @param {Array} arguments
-           * @throws {Error} if it is not
-           */
-          SolidityFunction.prototype.validateArgs = function(args) {
-            var inputArgs = args.filter(function(a) {
-              // filter the options object but not arguments that are arrays
-              return !(
-                utils.isObject(a) === true && utils.isArray(a) === false
-              );
-            });
-            if (inputArgs.length !== this._inputTypes.length) {
-              throw errors.InvalidNumberOfSolidityArgs();
-            }
-          };
-
-          /**
            * Should be used to create payload from arguments
            *
            * @method toPayload
@@ -15484,7 +15447,6 @@ Adds the callback and sets up the methods, to iterate over the results.
             ) {
               options = args[args.length - 1];
             }
-            this.validateArgs(args);
             options.to = this._address;
             options.data =
               '0x' +
@@ -16498,7 +16460,7 @@ Check if the current connection is still valid.
            */
           Method.prototype.validateArgs = function(args) {
             if (args.length !== this.params) {
-              throw errors.InvalidNumberOfRPCParams();
+              throw errors.InvalidNumberOfParams();
             }
           };
 
@@ -17078,18 +17040,13 @@ Check if the current connection is still valid.
             return factory;
           };
 
-          Eth.prototype.filter = function(
-            fil,
-            callback,
-            filterCreationErrorCallback
-          ) {
+          Eth.prototype.filter = function(fil, callback) {
             return new Filter(
               this._requestManager,
               fil,
               watches.eth(),
               formatters.outputLogFormatter,
-              callback,
-              filterCreationErrorCallback
+              callback
             );
           };
 
@@ -17240,25 +17197,6 @@ Check if the current connection is still valid.
               inputFormatter: [null],
             });
 
-            var importRawKey = new Method({
-              name: 'importRawKey',
-              call: 'personal_importRawKey',
-              params: 2,
-            });
-
-            var sign = new Method({
-              name: 'sign',
-              call: 'personal_sign',
-              params: 3,
-              inputFormatter: [null, formatters.inputAddressFormatter, null],
-            });
-
-            var ecRecover = new Method({
-              name: 'ecRecover',
-              call: 'personal_ecRecover',
-              params: 2,
-            });
-
             var unlockAccount = new Method({
               name: 'unlockAccount',
               call: 'personal_unlockAccount',
@@ -17280,15 +17218,7 @@ Check if the current connection is still valid.
               inputFormatter: [formatters.inputAddressFormatter],
             });
 
-            return [
-              newAccount,
-              importRawKey,
-              unlockAccount,
-              ecRecover,
-              sign,
-              sendTransaction,
-              lockAccount,
-            ];
+            return [newAccount, unlockAccount, sendTransaction, lockAccount];
           };
 
           var properties = function() {

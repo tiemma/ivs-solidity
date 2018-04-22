@@ -59074,9 +59074,8 @@ exports.inflateUndermine = inflateUndermine;
  */
           function gen_bitlen(
             s,
-            desc //    deflate_state *s;
-          ) //    tree_desc *desc;    /* the tree descriptor */
-          {
+            desc //    deflate_state *s; //    tree_desc *desc;    /* the tree descriptor */
+          ) {
             var tree = desc.dyn_tree;
             var max_code = desc.max_code;
             var stree = desc.stat_desc.static_tree;
@@ -59185,10 +59184,8 @@ exports.inflateUndermine = inflateUndermine;
           function gen_codes(
             tree,
             max_code,
-            bl_count //    ct_data *tree;             /* the tree to decorate */
-          ) //    int max_code;              /* largest code with non zero frequency */
-          //    ushf *bl_count;            /* number of codes at each bit length */
-          {
+            bl_count //    ct_data *tree;             /* the tree to decorate */ //    int max_code;              /* largest code with non zero frequency */ //    ushf *bl_count;            /* number of codes at each bit length */
+          ) {
             var next_code = new Array(
               MAX_BITS + 1
             ); /* next code value for each bit length */
@@ -59387,10 +59384,8 @@ exports.inflateUndermine = inflateUndermine;
             s,
             buf,
             len,
-            header //DeflateState *s;
-          ) //charf    *buf;    /* the input data */
-          //unsigned len;     /* its length */
-          //int      header;  /* true if block header must be written */
+            header //DeflateState *s; //charf    *buf;    /* the input data */ //unsigned len;     /* its length */
+          ) //int      header;  /* true if block header must be written */
           {
             bi_windup(s); /* align on byte boundary */
 
@@ -59428,10 +59423,8 @@ exports.inflateUndermine = inflateUndermine;
           function pqdownheap(
             s,
             tree,
-            k //    deflate_state *s;
-          ) //    ct_data *tree;  /* the tree to restore */
-          //    int k;               /* node to move down */
-          {
+            k //    deflate_state *s; //    ct_data *tree;  /* the tree to restore */ //    int k;               /* node to move down */
+          ) {
             var v = s.heap[k];
             var j = k << 1; /* left son of k */
             while (j <= s.heap_len) {
@@ -59466,10 +59459,8 @@ exports.inflateUndermine = inflateUndermine;
           function compress_block(
             s,
             ltree,
-            dtree //    deflate_state *s;
-          ) //    const ct_data *ltree; /* literal tree */
-          //    const ct_data *dtree; /* distance tree */
-          {
+            dtree //    deflate_state *s; //    const ct_data *ltree; /* literal tree */ //    const ct_data *dtree; /* distance tree */
+          ) {
             var dist; /* distance of matched string */
             var lc; /* match length or unmatched char (if dist == 0) */
             var lx = 0; /* running index in l_buf */
@@ -59535,9 +59526,8 @@ exports.inflateUndermine = inflateUndermine;
  */
           function build_tree(
             s,
-            desc //    deflate_state *s;
-          ) //    tree_desc *desc; /* the tree descriptor */
-          {
+            desc //    deflate_state *s; //    tree_desc *desc; /* the tree descriptor */
+          ) {
             var tree = desc.dyn_tree;
             var stree = desc.stat_desc.static_tree;
             var has_stree = desc.stat_desc.has_stree;
@@ -59634,10 +59624,8 @@ exports.inflateUndermine = inflateUndermine;
           function scan_tree(
             s,
             tree,
-            max_code //    deflate_state *s;
-          ) //    ct_data *tree;   /* the tree to be scanned */
-          //    int max_code;    /* and its largest code of non zero frequency */
-          {
+            max_code //    deflate_state *s; //    ct_data *tree;   /* the tree to be scanned */ //    int max_code;    /* and its largest code of non zero frequency */
+          ) {
             var n; /* iterates over all tree elements */
             var prevlen = -1; /* last emitted length */
             var curlen; /* length of current code */
@@ -59696,10 +59684,8 @@ exports.inflateUndermine = inflateUndermine;
           function send_tree(
             s,
             tree,
-            max_code //    deflate_state *s;
-          ) //    ct_data *tree; /* the tree to be scanned */
-          //    int max_code;       /* and its largest code of non zero frequency */
-          {
+            max_code //    deflate_state *s; //    ct_data *tree; /* the tree to be scanned */ //    int max_code;       /* and its largest code of non zero frequency */
+          ) {
             var n; /* iterates over all tree elements */
             var prevlen = -1; /* last emitted length */
             var curlen; /* length of current code */
@@ -59799,9 +59785,8 @@ exports.inflateUndermine = inflateUndermine;
             s,
             lcodes,
             dcodes,
-            blcodes //    deflate_state *s;
-          ) //    int lcodes, dcodes, blcodes; /* number of codes for each tree */
-          {
+            blcodes //    deflate_state *s; //    int lcodes, dcodes, blcodes; /* number of codes for each tree */
+          ) {
             var rank; /* index in bl_order */
 
             //Assert (lcodes >= 257 && dcodes >= 1 && blcodes >= 4, "not enough codes");
@@ -59905,10 +59890,8 @@ exports.inflateUndermine = inflateUndermine;
             s,
             buf,
             stored_len,
-            last //DeflateState *s;
-          ) //charf *buf;       /* input block */
-          //ulg stored_len;   /* length of input block */
-          //int last;         /* one if this is the last block for a file */
+            last //DeflateState *s; //charf *buf;       /* input block */ //ulg stored_len;   /* length of input block */
+          ) //int last;         /* one if this is the last block for a file */
           {
             send_bits(
               s,
@@ -59936,10 +59919,8 @@ exports.inflateUndermine = inflateUndermine;
             s,
             buf,
             stored_len,
-            last //DeflateState *s;
-          ) //charf *buf;       /* input block, or NULL if too old */
-          //ulg stored_len;   /* length of input block */
-          //int last;         /* one if this is the last block for a file */
+            last //DeflateState *s; //charf *buf;       /* input block, or NULL if too old */ //ulg stored_len;   /* length of input block */
+          ) //int last;         /* one if this is the last block for a file */
           {
             var opt_lenb, static_lenb; /* opt_len and static_len in bytes */
             var max_blindex = 0; /* index of last bit length code of non zero freq */
@@ -60028,10 +60009,8 @@ exports.inflateUndermine = inflateUndermine;
           function _tr_tally(
             s,
             dist,
-            lc //    deflate_state *s;
-          ) //    unsigned dist;  /* distance of matched string */
-          //    unsigned lc;    /* match length-MIN_MATCH or unmatched char (if dist==0) */
-          {
+            lc //    deflate_state *s; //    unsigned dist;  /* distance of matched string */ //    unsigned lc;    /* match length-MIN_MATCH or unmatched char (if dist==0) */
+          ) {
             //var out_length, in_length, dcode;
 
             s.pending_buf[s.d_buf + s.last_lit * 2] = (dist >>> 8) & 0xff;
@@ -81456,7 +81435,7 @@ exports.inflateUndermine = inflateUndermine;
 
             if (isBigNumber(val)) return fromDecimal(val);
 
-            if (typeof val === 'object') return fromUtf8(JSON.stringify(val));
+            if (isObject(val)) return fromUtf8(JSON.stringify(val));
 
             // if its a negative number, pass it through fromDecimal
             if (isString(val)) {
@@ -81742,11 +81721,7 @@ exports.inflateUndermine = inflateUndermine;
            * @return {Boolean}
            */
           var isObject = function(object) {
-            return (
-              object !== null &&
-              !(object instanceof Array) &&
-              typeof object === 'object'
-            );
+            return typeof object === 'object';
           };
 
           /**
@@ -81866,7 +81841,7 @@ exports.inflateUndermine = inflateUndermine;
   \********************************************/
         /*! exports provided: version, default */
         /***/ function(module) {
-          module.exports = {version: '0.19.0'};
+          module.exports = {version: '0.18.4'};
 
           /***/
         },
@@ -82013,8 +81988,6 @@ exports.inflateUndermine = inflateUndermine;
           Web3.prototype.isChecksumAddress = utils.isChecksumAddress;
           Web3.prototype.toChecksumAddress = utils.toChecksumAddress;
           Web3.prototype.isIBAN = utils.isIBAN;
-          Web3.prototype.padLeft = utils.padLeft;
-          Web3.prototype.padRight = utils.padRight;
 
           Web3.prototype.sha3 = function(string, options) {
             return '0x' + sha3(string, options);
@@ -82667,15 +82640,8 @@ exports.inflateUndermine = inflateUndermine;
            */
 
           module.exports = {
-            InvalidNumberOfSolidityArgs: function() {
-              return new Error(
-                'Invalid number of arguments to Solidity function'
-              );
-            },
-            InvalidNumberOfRPCParams: function() {
-              return new Error(
-                'Invalid number of input parameters to RPC method'
-              );
+            InvalidNumberOfParams: function() {
+              return new Error('Invalid number of input parameters');
             },
             InvalidConnection: function(host) {
               return new Error(
@@ -83192,9 +83158,7 @@ Adds the callback and sets up the methods, to iterate over the results.
                 self.callbacks.forEach(function(cb) {
                   cb(error);
                 });
-                if (typeof filterCreationErrorCallback === 'function') {
-                  filterCreationErrorCallback(error);
-                }
+                filterCreationErrorCallback(error);
               } else {
                 self.filterId = id;
 
@@ -83643,9 +83607,6 @@ Adds the callback and sets up the methods, to iterate over the results.
           var utils = __webpack_require__(
             /*! ../utils/utils */ './node_modules/web3/lib/utils/utils.js'
           );
-          var errors = __webpack_require__(
-            /*! ./errors */ './node_modules/web3/lib/web3/errors.js'
-          );
           var formatters = __webpack_require__(
             /*! ./formatters */ './node_modules/web3/lib/web3/formatters.js'
           );
@@ -83686,25 +83647,6 @@ Adds the callback and sets up the methods, to iterate over the results.
           };
 
           /**
-           * Should be called to check if the number of arguments is correct
-           *
-           * @method validateArgs
-           * @param {Array} arguments
-           * @throws {Error} if it is not
-           */
-          SolidityFunction.prototype.validateArgs = function(args) {
-            var inputArgs = args.filter(function(a) {
-              // filter the options object but not arguments that are arrays
-              return !(
-                utils.isObject(a) === true && utils.isArray(a) === false
-              );
-            });
-            if (inputArgs.length !== this._inputTypes.length) {
-              throw errors.InvalidNumberOfSolidityArgs();
-            }
-          };
-
-          /**
            * Should be used to create payload from arguments
            *
            * @method toPayload
@@ -83719,7 +83661,6 @@ Adds the callback and sets up the methods, to iterate over the results.
             ) {
               options = args[args.length - 1];
             }
-            this.validateArgs(args);
             options.to = this._address;
             options.data =
               '0x' +
@@ -84733,7 +84674,7 @@ Check if the current connection is still valid.
            */
           Method.prototype.validateArgs = function(args) {
             if (args.length !== this.params) {
-              throw errors.InvalidNumberOfRPCParams();
+              throw errors.InvalidNumberOfParams();
             }
           };
 
@@ -85313,18 +85254,13 @@ Check if the current connection is still valid.
             return factory;
           };
 
-          Eth.prototype.filter = function(
-            fil,
-            callback,
-            filterCreationErrorCallback
-          ) {
+          Eth.prototype.filter = function(fil, callback) {
             return new Filter(
               this._requestManager,
               fil,
               watches.eth(),
               formatters.outputLogFormatter,
-              callback,
-              filterCreationErrorCallback
+              callback
             );
           };
 
@@ -85475,25 +85411,6 @@ Check if the current connection is still valid.
               inputFormatter: [null],
             });
 
-            var importRawKey = new Method({
-              name: 'importRawKey',
-              call: 'personal_importRawKey',
-              params: 2,
-            });
-
-            var sign = new Method({
-              name: 'sign',
-              call: 'personal_sign',
-              params: 3,
-              inputFormatter: [null, formatters.inputAddressFormatter, null],
-            });
-
-            var ecRecover = new Method({
-              name: 'ecRecover',
-              call: 'personal_ecRecover',
-              params: 2,
-            });
-
             var unlockAccount = new Method({
               name: 'unlockAccount',
               call: 'personal_unlockAccount',
@@ -85515,15 +85432,7 @@ Check if the current connection is still valid.
               inputFormatter: [formatters.inputAddressFormatter],
             });
 
-            return [
-              newAccount,
-              importRawKey,
-              unlockAccount,
-              ecRecover,
-              sign,
-              sendTransaction,
-              lockAccount,
-            ];
+            return [newAccount, unlockAccount, sendTransaction, lockAccount];
           };
 
           var properties = function() {

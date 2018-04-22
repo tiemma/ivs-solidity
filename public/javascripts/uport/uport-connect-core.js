@@ -57579,15 +57579,8 @@ function _genCombMulTo(alen, blen) {
            */
 
           module.exports = {
-            InvalidNumberOfSolidityArgs: function() {
-              return new Error(
-                'Invalid number of arguments to Solidity function'
-              );
-            },
-            InvalidNumberOfRPCParams: function() {
-              return new Error(
-                'Invalid number of input parameters to RPC method'
-              );
+            InvalidNumberOfParams: function() {
+              return new Error('Invalid number of input parameters');
             },
             InvalidConnection: function(host) {
               return new Error(
