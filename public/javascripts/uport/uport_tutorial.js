@@ -22,9 +22,8 @@ connect.requestCredentials().then(userProfile => {
 
   postData('/uport/verify', userProfile).then(response => {
     window.location.href = response.url;
-  })
+  });
 });
-
 
 //
 // // Setup the simple Status contract - allows you to set and read a status string

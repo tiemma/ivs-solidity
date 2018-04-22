@@ -21119,35 +21119,38 @@
         /*!********************************************!*\
   !*** ./node_modules/elliptic/package.json ***!
   \********************************************/
-        /*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, dependencies, deprecated, description, devDependencies, files, homepage, keywords, license, main, name, repository, scripts, version, default */
+        /*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, author, bugs, dependencies, description, devDependencies, files, homepage, keywords, license, main, name, repository, scripts, version, default */
         /***/ function(module) {
           module.exports = {
-            _from: 'elliptic@^6.3.2',
+            _args: [
+              [
+                'elliptic@6.4.0',
+                '/home/blank/Documents/REPOS/blockchain-hackathon',
+              ],
+            ],
+            _from: 'elliptic@6.4.0',
             _id: 'elliptic@6.4.0',
             _inBundle: false,
             _integrity: 'sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=',
             _location: '/elliptic',
             _phantomChildren: {},
             _requested: {
-              type: 'range',
+              type: 'version',
               registry: true,
-              raw: 'elliptic@^6.3.2',
+              raw: 'elliptic@6.4.0',
               name: 'elliptic',
               escapedName: 'elliptic',
-              rawSpec: '^6.3.2',
+              rawSpec: '6.4.0',
               saveSpec: null,
-              fetchSpec: '^6.3.2',
+              fetchSpec: '6.4.0',
             },
-            _requiredBy: ['/jsontokens'],
+            _requiredBy: ['/browserify-sign', '/create-ecdh', '/jsontokens'],
             _resolved:
               'https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz',
-            _shasum: 'cac9af8762c85836187003c8dfe193e5e2eae5df',
-            _spec: 'elliptic@^6.3.2',
-            _where:
-              '/home/blank/Documents/REPOS/blockchain-hackathon/node_modules/jsontokens',
+            _spec: '6.4.0',
+            _where: '/home/blank/Documents/REPOS/blockchain-hackathon',
             author: {name: 'Fedor Indutny', email: 'fedor@indutny.com'},
             bugs: {url: 'https://github.com/indutny/elliptic/issues'},
-            bundleDependencies: false,
             dependencies: {
               'bn.js': '^4.4.0',
               brorand: '^1.0.1',
@@ -21157,7 +21160,6 @@
               'minimalistic-assert': '^1.0.0',
               'minimalistic-crypto-utils': '^1.0.0',
             },
-            deprecated: false,
             description: 'EC cryptography',
             devDependencies: {
               brfs: '^1.4.3',
@@ -36398,42 +36400,44 @@ function _genCombMulTo(alen, blen) {
         /*!*********************************************************************!*\
   !*** ./node_modules/key-encoder/node_modules/elliptic/package.json ***!
   \*********************************************************************/
-        /*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, dependencies, deprecated, description, devDependencies, homepage, keywords, license, main, name, repository, scripts, version, default */
+        /*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, author, bugs, dependencies, description, devDependencies, homepage, keywords, license, main, name, repository, scripts, version, default */
         /***/ function(module) {
           module.exports = {
-            _from: 'elliptic@^5.1.0',
+            _args: [
+              [
+                'elliptic@5.2.1',
+                '/home/blank/Documents/REPOS/blockchain-hackathon',
+              ],
+            ],
+            _from: 'elliptic@5.2.1',
             _id: 'elliptic@5.2.1',
             _inBundle: false,
             _integrity: 'sha1-+ilLZWPG3bybo9yFlGh66ECFjxA=',
             _location: '/key-encoder/elliptic',
             _phantomChildren: {},
             _requested: {
-              type: 'range',
+              type: 'version',
               registry: true,
-              raw: 'elliptic@^5.1.0',
+              raw: 'elliptic@5.2.1',
               name: 'elliptic',
               escapedName: 'elliptic',
-              rawSpec: '^5.1.0',
+              rawSpec: '5.2.1',
               saveSpec: null,
-              fetchSpec: '^5.1.0',
+              fetchSpec: '5.2.1',
             },
             _requiredBy: ['/key-encoder'],
             _resolved:
               'http://registry.npmjs.org/elliptic/-/elliptic-5.2.1.tgz',
-            _shasum: 'fa294b6563c6ddbc9ba3dc8594687ae840858f10',
-            _spec: 'elliptic@^5.1.0',
-            _where:
-              '/home/blank/Documents/REPOS/blockchain-hackathon/node_modules/key-encoder',
+            _spec: '5.2.1',
+            _where: '/home/blank/Documents/REPOS/blockchain-hackathon',
             author: {name: 'Fedor Indutny', email: 'fedor@indutny.com'},
             bugs: {url: 'https://github.com/indutny/elliptic/issues'},
-            bundleDependencies: false,
             dependencies: {
               'bn.js': '^3.1.1',
               brorand: '^1.0.1',
               'hash.js': '^1.0.0',
               inherits: '^2.0.1',
             },
-            deprecated: false,
             description: 'EC cryptography',
             devDependencies: {
               browserify: '^3.44.2',
