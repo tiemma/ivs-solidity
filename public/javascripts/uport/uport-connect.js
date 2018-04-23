@@ -59693,7 +59693,7 @@ exports.inflateUndermine = inflateUndermine;
 
             var count = 0; /* repeat count of the current code */
             var max_count = 7; /* max repeat count */
-            var min_count = 4; /* min repeat count */ /* guard already set */
+            var min_count = 4; /* guard already set */ /* min repeat count */
 
             /* tree[max_code+1].Len = -1; */ if (nextlen === 0) {
               max_count = 138;

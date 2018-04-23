@@ -1,0 +1,9 @@
+{
+    "extends": ["eslint:recommended", "google"],
+    "env": {
+        "es6": true
+    },
+    "rules": {
+        "max-len": [2, 120, 8]
+    }
+}

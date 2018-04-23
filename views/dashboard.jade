@@ -6,5 +6,14 @@ block content
     p Address
     h2=  user.address
 
-    script(src="/javascripts/web_deploy.js")
-    script(src="/javascripts/web3/index.js")
+    div(class="file-field input-field")
+        div(class="btn")
+            span File
+    div(class="file-path-wrapper")
+        input(class="file-path validate", type="text")
+    form(enctype="multipart/form-data", method="POST", action="/dashboard/upload")
+        input(type="file", name="file")
+        button Save
+
+    script(src="javascripts/web_deploy.js")
+    script(src="javascripts/web3/index.js")

@@ -9,5 +9,3 @@ function set(name, address, age) {
     console.log(response);
   });
 }
-
-function uploadFile(blob) {}
