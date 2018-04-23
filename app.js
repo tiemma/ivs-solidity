@@ -5,12 +5,7 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let sassMiddleware = require('node-sass-middleware');
 
-
 require('dotenv').config();
-
-let mongoose = require('mongoose');
-let db = require(__dirname+'/db/init/index')(mongoose);
-
 let routesDebug = require('./routes/init');
 let debug = require('debug')('hackathon:server');
 
@@ -18,8 +13,6 @@ let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let uportRouter = require('./routes/uport');
 let dashboardRouter = require('./routes/dashboard');
-
-
 
 let app = express();
 
@@ -39,7 +32,6 @@ app.use(sassMiddleware({
 }));
 
 app.use('/', express.static(path.join(__dirname, 'public')));
-
 let contractPath = path.resolve(__dirname, 'truffle/build/contracts');
 debug('Contract path: ' + contractPath);
 app.use('/contracts', express.static(contractPath));
