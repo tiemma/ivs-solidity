@@ -20,8 +20,13 @@ and migrate the solidity to the testnet altogether.
 
 Then the server starts and the entire application is accessible.
 
+The entire application is built to be used to verify the identity of users using the uPort(http://uport.me) application.
 
-**NOTE: Still under development
+Don't forget to star!!!!!!!!
+
+
+
+###NOTE: Still under development
 
 
 
