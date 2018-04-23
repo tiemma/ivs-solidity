@@ -59384,9 +59384,8 @@ exports.inflateUndermine = inflateUndermine;
             s,
             buf,
             len,
-            header //DeflateState *s; //charf    *buf;    /* the input data */ //unsigned len;     /* its length */
-          ) //int      header;  /* true if block header must be written */
-          {
+            header //DeflateState *s; //charf    *buf;    /* the input data */ //unsigned len;     /* its length */ //int      header;  /* true if block header must be written */
+          ) {
             bi_windup(s); /* align on byte boundary */
 
             if (header) {
@@ -59694,7 +59693,7 @@ exports.inflateUndermine = inflateUndermine;
 
             var count = 0; /* repeat count of the current code */
             var max_count = 7; /* max repeat count */
-            var min_count = 4; /* guard already set */ /* min repeat count */
+            var min_count = 4; /* min repeat count */ /* guard already set */
 
             /* tree[max_code+1].Len = -1; */ if (nextlen === 0) {
               max_count = 138;
@@ -59890,9 +59889,8 @@ exports.inflateUndermine = inflateUndermine;
             s,
             buf,
             stored_len,
-            last //DeflateState *s; //charf *buf;       /* input block */ //ulg stored_len;   /* length of input block */
-          ) //int last;         /* one if this is the last block for a file */
-          {
+            last //DeflateState *s; //charf *buf;       /* input block */ //ulg stored_len;   /* length of input block */ //int last;         /* one if this is the last block for a file */
+          ) {
             send_bits(
               s,
               (STORED_BLOCK << 1) + (last ? 1 : 0),
@@ -59919,9 +59917,8 @@ exports.inflateUndermine = inflateUndermine;
             s,
             buf,
             stored_len,
-            last //DeflateState *s; //charf *buf;       /* input block, or NULL if too old */ //ulg stored_len;   /* length of input block */
-          ) //int last;         /* one if this is the last block for a file */
-          {
+            last //DeflateState *s; //charf *buf;       /* input block, or NULL if too old */ //ulg stored_len;   /* length of input block */ //int last;         /* one if this is the last block for a file */
+          ) {
             var opt_lenb, static_lenb; /* opt_len and static_len in bytes */
             var max_blindex = 0; /* index of last bit length code of non zero freq */
 

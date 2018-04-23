@@ -6,9 +6,10 @@ contract Details {
     address public owner;
 
     struct User{
-        bytes32 name;
-        bytes32 _address;
+        string name;
+        string _address;
         uint age;
+        string[] files;
     }
 
     mapping(address => User) public users;
@@ -18,13 +19,21 @@ contract Details {
         owner = msg.sender;
     }
 
-    function returnOwner() view public returns (bytes32){
+    modifier onlyOwner(){
+        require(msg.sender == owner, "You must be the owner of the account");
+        _;
+
+    }
+
+    function returnOwner() view public returns (string){
         return users[owner].name;
     }
 
-    function setName(bytes32 name, ) public returns (bool){
-        require(msg.sender == owner, "You must be the owner of the account");
+    function setName(string name, string _address, uint age, string hash) public onlyOwner returns (address) {
         users[owner].name = name;
-        return true;
+        users[owner]._address = _address;
+        users[owner].age = age;
+        users[owner].files.push(hash);
+        return owner;
     }
 }
